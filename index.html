@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0' name='viewport'>
+        <title>	</title>
+
+        <script src='javascripts/d3.js' type='text/javascript'></script>
+        <script src='javascripts/crossfilter.js' type='text/javascript'></script>
+        <script src='javascripts/dc.js' type='text/javascript'></script>
+        <script src='javascripts/jquery-1.9.1.min.js' type='text/javascript'></script>
+        <script src='javascripts/bootstrap.min.js' type='text/javascript'></script>
+        <script src='javascripts/d3.tip.js' type='text/javascript'></script>
+
+        <link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+        <link href='css/dc.css' rel='stylesheet' type='text/css'>
+
+        <style type="text/css">
+            .span2, .span4, .span8, .span12, .container {
+                border:1.5px solid #59b03f;
+                font-family: rokkittregular;
+            }
+            .span4{
+                margin-left:-20px;
+                font-family: rokkittregular;
+            }
+            #treeview input{
+                margin-top:-5px;
+            }
+            #treeview span{
+                margin-left:5px;
+            }
+            #chart_top img{
+                float:left;
+            }
+            #chart_top h3{
+                text-align: center;
+                margin-right: 292px;
+            }
+            .treeview .hover{
+                color: #000;
+                cursor: pointer;
+                font-weight: bold;
+            }
+            .bubble_label{font-size:1.5em; font-weight:bold;}
+            #dc-bubble-graph svg{height:335px;}
+            #treeview{background-color:#F3F2F2; min-height:108px; margin-left:10px;}
+            #treeview li{background-color:#F3F2F2}
+            .remaining-graphs{border: none;}
+            .table-graph{border: none; border-top:1px solid #59b03f;}
+            .bubble-graph{border: none; border-bottom:1px solid #59b03f;}
+
+            .bubble-graph svg{margin-left:50px;}
+            #dc-bubble-graph h4,a{margin-left:15px;}             
+
+            #dc-pie-graph svg{margin-left:45PX;}
+            #dc-pie-graph h4{margin-left:15PX;}  
+
+            #dc-volume-chart svg{margin-left:37px;}
+            #dc-volume-chart h4{margin-left:50px;}
+
+            #dc-collection-rate-stacked svg{margin-left:30px;}
+            #dc-collection-rate-stacked h4{margin-left:48px;}
+
+            .table{ width: 95%; margin-bottom: 20px; margin-left: 30px; }
+            .table-graph h4 {margin-left:15px;}
+            .treeview span{font-size:15px; font-family:'rokkittregular';}
+            .treeview span:hover{background-color: #57af3d; color: #FFF; padding:5px;}
+            body { 
+                padding-top: 40px;
+                font-family:'rokkittregular' important; 
+            }
+            /* testing out d3 tooltip */
+            .d3-tip {
+                line-height: 1;
+                font-weight: bold;
+                padding: 12px;
+                /*background: #57af3d;*/
+                color: #fff;
+                border-radius: 8px;
+            }
+
+            /* Creates a small triangle extender for the tooltip */
+            .d3-tip:after {
+                box-sizing: border-box;
+                display: inline;
+                font-size: 10px;
+                width: 100%;
+                line-height: 1;
+                /*color: #57af3d;*/
+                content: "\25BC";
+                position: absolute;
+                text-align: center;
+            }
+
+            /* Style northward tooltips differently */
+            .d3-tip.n:after {
+                margin: -1px 0 0 0;
+                top: 100%;
+                left: 0;
+            }  
+        </style>
+    </head>
+
+    <body>
+        <div class='navbar navbar-fixed-top'>
+            <div class='navbar-inner'>
+                <div class='container-fluid' style='padding: 10px; background-color: white'>
+                    <img src="images/stmarySmall.jpg" />                     
+                </div>
+            </div>
+        </div>
+
+        <div class='row-fluid' id='main-container'>
+            <div class='span12'>                
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class='span12' id='dc-bubble-graph'>
+                            <h4>Measure Chart, Average With Measure</h4>
+                            <a class="reset" href="javascript:bubbleChart.filterAll();dc.redrawAll();change()" style="display: none;">reset</a>
+                            <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+                        </div>
+                        <div class='span12' id='dc-bubble-region'>
+                            <h4>Bar Charts</h4>
+                            <a class="reset" href="javascript:bubbleChart.filterAll();dc.redrawAll();change()" style="display: none;">reset</a>
+                            <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span8">
+                        <div class="row-fluid">
+                            <div class='span6' id='dc-pie-graph'>                            
+                                <h4>Average Doctors (Pie)</h4>
+                                <a class="reset" href="javascript:pieChart.filterAll();dc.redrawAll();change()" style="display: none;">reset</a>
+                            </div>
+                            <div class='span6' id='dc-volume-chart'>
+                                <h4>Average RVUs / Number of Charges (Bar)</h4>
+                                <a class="reset" href="javascript:volumeChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class='span6' id='dc-outer-chart'>                            
+                                <h4>Collection Rate</h4>
+                                <a class="reset" href="javascript:collectionRate.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                            </div>
+                            <div class='span6' id='dc-volume-chart'>
+                                <h4>Average RVUs / Number of Charges (Bar)</h4>
+                                <a class="reset" href="javascript:volumeChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class='span12 table-graph' style="overflow-x:scroll; max-height:180em;">
+                                <h4>Data Table for Filtered Measures</h4>
+                                <table class='table table-hover dc-data-table' id='dc-table-graph'></table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='span4'>
+                        <div class='span12' id='row-graph'>
+                            <h4>Average Score per measure</h4>
+                            <a class="reset" href="javascript:rowChart.filterAll();dc.redrawAll();change()" style="display: none;">reset</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src='javascripts/simple_vis.js' type='text/javascript'></script>
+    </body>
+</html>
