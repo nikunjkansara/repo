@@ -1,0 +1,121 @@
+.span9{
+	width:78% !important;
+    }
+    .stack-chart{
+	overflow-x:scroll;
+    }
+    .stack-chart svg{
+	height:497px;
+    }
+    
+    .span2, .span4, .span8, .span12, .container {              
+	margin-left:0px
+    }
+    .chart_container{		
+	background:#f3f2f2;
+    }
+    #chart_top{
+	width: 100%; padding: 0 10px; background-color: white
+    }
+    #chart_top img{
+	float:left;
+    }
+    #chart_top h3{
+	text-align: center;
+	margin-right: 292px;
+    }            
+    
+    #dc-bubble-graph svg{height:435px;}
+    
+    .table{ margin-bottom: 20px; margin-left: 30px; }        
+    .left-section{
+	background:#FFF;
+	border-right:1px solid #ddd;
+	border-bottom:1px solid #ccc;
+	height:2192px;
+	width:19% !important
+    }    
+    .top_content {
+	margin-top:1%;
+	background:#72c053;
+	color:#fff;	
+        margin-left: -0.9%;
+        margin-bottom: 1%;
+    }
+    .top_content h4{
+	width:100% ;
+	margin-left:0% ;
+	border:none;
+	margin-left:2%;
+	font-size:1.6em;
+    }
+    
+    .table-graph{
+	overflow-x:scroll;
+	overflow-y:scroll;
+	max-height:400px;
+    }
+    
+    .scrollbar::-webkit-scrollbar{  
+	width: 12px;  
+    }    
+    .scrollbar::-webkit-scrollbar-track{  
+	background-color: #eaeaea;  
+	border-left: 1px solid #ccc;  
+    }  
+    .scrollbar::-webkit-scrollbar-thumb{  
+	background-color: #ccc;  
+    }  
+    .scrollbar::-webkit-scrollbar-thumb:hover {  
+	background-color: #aaa;  
+    }
+    .header{
+	height:90px !important;
+	box-shadow:0px 2px 2px #ddd;
+    }
+    .header .left-section
+    {
+	height:100%
+    }
+    .header .left-section img{
+	margin-top:3%;
+	margin-left:20%
+    }    
+    .bottom-div{
+	height:25px;
+	background:#72c053;	
+    }
+    
+    /* css for d3 tooltip */
+    .d3-tip {
+	line-height: 1;
+	font-weight: bold;
+	padding: 12px;
+	/*background: #57af3d;*/
+	color: #fff;
+	border-radius: 8px;
+	z-index:9999;
+    }
+
+    /* Creates a small triangle extender for the tooltip */
+    .d3-tip:after {
+	box-sizing: border-box;
+	display: inline;
+	font-size: 10px;
+	width: 100%;
+	line-height: 1;
+	/*color: #57af3d;*/
+	content: "\25BC";
+	position: absolute;
+	text-align: center;
+    }
+
+    /* Style northward tooltips differently */
+    .d3-tip.n:after {
+	margin: -1px 0 0 0;
+	top: 100%;
+	left: 0;
+    }  
+    .dc-chart g.row text{
+	    fill:#000;	
+    }

@@ -1,0 +1,93 @@
+@font-face {
+	font-family: 'rokkittbold';
+	src: url('../fonts/rokkitt-bold-webfont-webfont.eot');
+	src: url('../fonts/rokkitt-bold-webfont-webfont.eot?#iefix') format('embedded-opentype'), 
+		 url('../fonts/rokkitt-bold-webfont-webfont.woff') format('woff'), 
+		 url('../fonts/rokkitt-bold-webfont-webfont.ttf') format('truetype'), 
+		 url('../fonts/rokkitt-bold-webfont-webfont.svg#rokkittbold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'rokkittregular';
+	src: url('../fonts/rokkitt-webfont.eot');
+	src: url('../fonts/rokkitt-webfont.eot?#iefix') format('embedded-opentype'), 
+		 url('../fonts/rokkitt-webfont.woff') format('woff'), 
+		 url('../fonts/rokkitt-webfont.ttf') format('truetype'), 
+		 url('../fonts/rokkitt-webfont.svg#rokkittregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+body{font-size:14px; font-family: 'rokkittregular'; background:#f3f2f2;}
+.clear{ clear:both;}
+.main_container{ width:100%; float:left; display: table;}
+
+
+.toponeborder{border-top:2px solid #4d4b47;}
+.toptwoborder{border-top:2px solid #59b03f;}
+
+.left_part{ width:20%;  border-right: 1px solid #d7d6d6; display: table-cell; vertical-align: top;}
+.right_part{ width:80%; display: table-cell; vertical-align: top; background: #f3f2f2;}
+
+.leftheader{ width:100%; float:left; height:100px; border-bottom:1px solid #ccc;}
+.leftheader .logo{ width:148px; margin:10px auto 0 auto;}
+.user_cont{width:100%; float:left;}
+.user_cont_head{width:100%; background:#fff; border-bottom:1px solid #ccc; float: left;}
+.user_cont_head h1{font-family: 'rokkittbold'; font-size: 22px; padding: 0 15px; width: 76%; float:left;}
+.user_cont_head a{text-align: right; margin: 29px 15px 0 0;}
+.user_cont_head a img{ width:65%;}
+
+.user_cont_list{ height:1260px; width:80%; margin: auto; clear: both;}
+ul.namelist{ margin:0; padding:0; list-style:none; height:1240px;}
+ul.namelist li{ border-bottom:1px solid #e2e2e2;}
+ul.namelist li a{ font-size:14px; color:#494949; padding:2px 0; display:block;}
+ul.namelist li a:hover{ text-decoration:none; color:#5f5f5f;}
+
+
+.rightheader{ width:80.7%; float:left; height:89px; background:#f3f2f2; border-bottom:1px solid #ccc;}
+
+.top_buttons{width:110px; float:right; margin:26px 20px 0 0; }
+.top_buttons a{ margin:0 6px 0 0;}
+
+.right_bottom_cont{ width:100%; padding:15px; float:left;}
+.firstportion{ background:#72bf52; width:100%; float:left;}
+.firstportion h2{ color:#fff; margin: 0; padding: 10px;}
+
+.secondportion{width:100%; float:left; margin:20px 0;}
+.secondportionleft{ width:59%;  float:left;}
+.secondportionright{width:39%;  float:right;}
+.thirdportion{width:100%; float:left; }
+
+
+.box{ width:100%; float:left; background:#fff; box-shadow: 2px 2px 2px #DDDDDD; padding:15px;}
+.boxone{ height:335px;}
+.boxtwo{ height:494px;}
+.boxthree{ height:415px;}
+.boxfour{ height:415px;}
+.boxfive{ height:380px;}
+.boxsix{ min-height:380px;}
+
+.box.margtop{ margin-top:15px;}
+
+.headingtypeone{ width:100%; float:left; border-bottom:1px solid #e2e2e2;}
+.headingtypeone h3{float: left; margin: 0; font-size: 20px; font-weight:normal !important;}
+.headingtypeone a{font-size: 18px; color: #494949; margin: -5px 0 5px 0; text-align: right;}
+.headingtypeone a img{ width:65%;}
+
+.graphCont{ width:100%; float:left;}
+.tableContent{ width:100%; float:left;}
+
+
+.footer{ width:100%; background:#72bf52; height:40px;}
+
+
+
+.dmctop_marg{ margin-top:20px;}
+
+.remaining-graphs{
+	margin-top:15px;
+}
